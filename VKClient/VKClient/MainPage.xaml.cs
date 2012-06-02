@@ -10,11 +10,13 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+//using System.Threading;
 
 namespace VKClient
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        
         // Constructor
         public MainPage()
         {
@@ -23,9 +25,16 @@ namespace VKClient
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            
             HttpRequestsHandler rh = new HttpRequestsHandler();
-            rh.AuthHttp(LoginBox.Text, PasswordBox.Password);
-            NavigationService.Navigate(new Uri("/PivotPage.xaml", UriKind.Relative));
+            rh.AuthHttp(() =>
+            {
+
+                NavigationService.Navigate(new Uri("/PivotPage.xaml", UriKind.Relative));
+            }, (error) =>
+            {
+            }
+                );
         }
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {

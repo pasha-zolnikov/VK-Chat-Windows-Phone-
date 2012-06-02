@@ -22,7 +22,6 @@
             <controls:PivotItem Header="Сообщения">
                 <Grid>
                     <vk:ConversationListPage/>
-                    
                 </Grid>
             </controls:PivotItem>
 

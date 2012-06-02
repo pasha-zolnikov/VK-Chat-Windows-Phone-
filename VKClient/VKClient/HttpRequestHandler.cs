@@ -18,7 +18,8 @@ namespace VKClient
 {
     public class HttpRequestsHandler
     {
-        private String accessToken;
+        public static String accessToken { get; private set; }
+        public static string result;
         private String CreateAuthString(String username, String password)
         {
             StringBuilder sb = new StringBuilder();
@@ -34,26 +35,28 @@ namespace VKClient
             return sb.ToString();
         }
 
-        public void AuthHttp(String username, String password)
-        {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://oauth.vk.com/token?grant_type=password&client_id=3059981&client_secret=YWES9oRC76HvjYLIA62a&username=pasha.zolnikov@gmail.com&password=g47DKFJ7yg56918234&scope=messages");
-            request.BeginGetResponse(new AsyncCallback(ReadWebRequestCallback), request);       
-        }
+        
 
-        private void ReadWebRequestCallback(IAsyncResult callbackResult)
-        {
-            HttpWebRequest myRequest = (HttpWebRequest)callbackResult.AsyncState;
-            HttpWebResponse myResponse = (HttpWebResponse)myRequest.EndGetResponse(callbackResult);
+        //public void AuthHttp(object info)
+        //{
+        //    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://oauth.vk.com/token?grant_type=password&client_id=3059981&client_secret=YWES9oRC76HvjYLIA62a&username=pasha.zolnikov@gmail.com&password=g47DKFJ7yg56918234&scope=messages");
+        //    request.BeginGetResponse(new AsyncCallback(AuthRequestCallback), request);
+        //}
 
-            using (StreamReader httpwebStreamReader = new StreamReader(myResponse.GetResponseStream()))
-            {
-                String results = httpwebStreamReader.ReadToEnd();
-                RetreiveAccessToken(results);
-                //TextBlockResults.Text = results; //-- on another thread!
-                //Dispatcher.BeginInvoke(() => TextBlockResults.Text = results);
-            }
-            myResponse.Close();
-        }
+        //private void AuthRequestCallback(IAsyncResult callbackResult)
+        //{
+        //    HttpWebRequest myRequest = (HttpWebRequest)callbackResult.AsyncState;
+        //    HttpWebResponse myResponse = (HttpWebResponse)myRequest.EndGetResponse(callbackResult);
+
+        //    using (StreamReader httpwebStreamReader = new StreamReader(myResponse.GetResponseStream()))
+        //    {
+        //        string results = httpwebStreamReader.ReadToEnd();
+        //        var answer = JsonConvert.DeserializeObject<AuthAnswer>(results);
+        //        accessToken = answer.accessToken;
+        //        //TextBlockResults.Text = results; //-- on another thread!
+        //    }
+        //    myResponse.Close();
+        //}
 
         private void RetreiveAccessToken(String results)
         {
@@ -61,10 +64,49 @@ namespace VKClient
             accessToken = answer.accessToken;
         }
 
-        public void GetDialogs()
+        public void AuthHttp(Action callback, Action<Exception> error)
         {
-            //JsonParser.ParseJson()
-            
+            WebClient client = new WebClient();
+            client.DownloadStringCompleted += (p, q) =>
+                {
+                    if (q.Error == null)
+                    {
+                        accessToken = JsonConvert.DeserializeObject<AuthAnswer>(q.Result).accessToken;
+                        callback();
+                    }
+                    else
+                    {
+                        error(q.Error);
+                    }
+                };
+            client.DownloadStringAsync(new Uri("https://oauth.vk.com/token?grant_type=password&client_id=3059981&client_secret=YWES9oRC76HvjYLIA62a&username=pasha.zolnikov@gmail.com&password=g47DKFJ7yg56918234&scope=messages"));
+        }
+
+        //private void client_DownloadStringSompleted(object sender, DownloadStringCompletedEventArgs ololo)
+        //{
+        //    if (ololo.Error == null)
+        //    {
+        //        PivotPage.result = ololo.Result;
+                
+        //    }
+        //}
+
+        public void GetDialogs(Action callback, Action<Exception> error)
+        {
+            WebClient client = new WebClient();
+            client.DownloadStringCompleted += (p, q) =>
+            {
+                if (q.Error == null)
+                {
+                    accessToken = JsonConvert.DeserializeObject<AuthAnswer>(q.Result).accessToken;
+                    
+                    callback();
+                }
+                else
+                {
+                    error(q.Error);
+                }
+            };
         }
         
     }

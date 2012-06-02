@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="HttpRequestHandler.cs" />
     <Compile Include="JsonParser.cs" />
+    <Compile Include="LoginInfo.cs" />
     <Compile Include="PivotPage.xaml.cs">
       <DependentUpon>PivotPage.xaml</DependentUpon>
     </Compile>
