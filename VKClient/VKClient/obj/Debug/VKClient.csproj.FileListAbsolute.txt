@@ -1,0 +1,14 @@
+c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\Bin\Debug\ApplicationIcon.png
+c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\Bin\Debug\Background.png
+c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\Bin\Debug\VKClient.dll
+c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\Bin\Debug\VKClient.pdb
+c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\Bin\Debug\AppManifest.xaml
+c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\Bin\Debug\VKClient.xap
+c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\obj\Debug\ResolveAssemblyReference.cache
+c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\obj\Debug\App.g.i.cs
+c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\obj\Debug\MainPage.g.i.cs
+c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\obj\Debug\VKClient.g.resources
+c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\obj\Debug\VKClient.dll
+c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\obj\Debug\VKClient.pdb
+c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\obj\Debug\XapCacheFile.xml
+C:\Users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\obj\Debug\RegisterPage.g.i.cs
