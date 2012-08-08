@@ -13,21 +13,16 @@ using Microsoft.Phone.Controls;
 
 namespace VKClient
 {
-    public partial class MainPage : PhoneApplicationPage
+    public partial class PivotPage : PhoneApplicationPage
     {
-        // Constructor
-        public MainPage()
+        public PivotPage()
         {
             InitializeComponent();
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private void ConversationListControl_Loaded(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/PivotPage.xaml", UriKind.Relative));
-        }
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/SignUpPage.xaml", UriKind.Relative));
+
         }
     }
 }

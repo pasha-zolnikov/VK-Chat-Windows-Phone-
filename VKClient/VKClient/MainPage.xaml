@@ -38,7 +38,7 @@
             <TextBox x:Name="LoginBox" FontWeight="Bold"  Grid.Row="1"/>
             <TextBlock x:Name="PasswordBoxTitle" FontWeight="Bold" Grid.Row="2" Margin="12,20,0,0" FontSize="22" Text="Пароль" Foreground="#B7B7B7" Style="{StaticResource PhoneTextTitle1Style}"/>
             <PasswordBox x:Name="PasswordBox" Grid.Row="3"/>
-            <Button x:Name="LoginButton" FontWeight="Bold"  BorderBrush="#404040" Margin="0,10,0,0" Grid.Row="4" Content="войти" HorizontalAlignment="Left" Foreground="#404040" FontSize="26" Width="240" Height="70" VerticalContentAlignment="Top"/>
+            <Button x:Name="LoginButton" FontWeight="Bold"  BorderBrush="#404040" Margin="0,10,0,0" Grid.Row="4" Content="войти" HorizontalAlignment="Left" Foreground="#404040" FontSize="26" Width="240" Height="70" VerticalContentAlignment="Top"  Click="LoginButton_Click"/>
         </Grid>
 
         <Grid x:Name="RegisterPanel" Grid.Row="2" Margin="0,470,12,0">

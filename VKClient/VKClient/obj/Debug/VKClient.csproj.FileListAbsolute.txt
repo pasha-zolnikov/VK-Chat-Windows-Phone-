@@ -12,3 +12,21 @@ c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\obj\De
 c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\obj\Debug\VKClient.pdb
 c:\users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\obj\Debug\XapCacheFile.xml
 C:\Users\dautov-r\documents\visual studio 2010\Projects\VKClient\VKClient\obj\Debug\RegisterPage.g.i.cs
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\ApplicationIcon.png
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\Background.png
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\VKClient.dll
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\VKClient.pdb
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\AppManifest.xaml
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\VKClient.xap
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\App.g.i.cs
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\MainPage.g.i.cs
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.g.resources
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.dll
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.pdb
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\XapCacheFile.xml
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\SignUpPage.g.i.cs
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\Microsoft.Phone.Controls.dll
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\Microsoft.Phone.Controls.xml
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\PivotPage.g.i.cs
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\ConversationListPage.g.i.cs
