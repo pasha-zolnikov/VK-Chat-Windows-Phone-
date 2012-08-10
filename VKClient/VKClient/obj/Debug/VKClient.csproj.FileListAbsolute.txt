@@ -32,3 +32,23 @@ C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\
 C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\ConversationListPage.g.i.cs
 C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\controls\MessagePreviewControl.g.i.cs
 C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\ConversationPage.g.i.cs
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\ApplicationIcon.png
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\Background.png
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\VKClient.dll
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\VKClient.pdb
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\AppManifest.xaml
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\VKClient.xap
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\Microsoft.Phone.Controls.dll
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\Microsoft.Phone.Controls.xml
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\ResolveAssemblyReference.cache
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\App.g.i.cs
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\controls\MessagePreviewControl.g.i.cs
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\ConversationListPage.g.i.cs
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\ConversationPage.g.i.cs
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\PivotPage.g.i.cs
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\SignUpPage.g.i.cs
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\MainPage.g.i.cs
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.g.resources
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.dll
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.pdb
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\XapCacheFile.xml

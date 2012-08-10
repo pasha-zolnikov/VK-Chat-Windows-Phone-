@@ -62,6 +62,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="controls\MessagePreviewControl.xaml.cs">
       <DependentUpon>MessagePreviewControl.xaml</DependentUpon>
     </Compile>
@@ -71,6 +72,7 @@
     <Compile Include="ConversationPage.xaml.cs">
       <DependentUpon>ConversationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HttpRequestHandler.cs" />
     <Compile Include="PivotPage.xaml.cs">
       <DependentUpon>PivotPage.xaml</DependentUpon>
     </Compile>
