@@ -10,6 +10,9 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using VKClient.controls;
+using System.Windows.Media.Imaging;
+using System.Windows.Resources;
 
 namespace VKClient
 {
@@ -23,33 +26,29 @@ namespace VKClient
 
 
 
-            //for each message create textblock (should be custom MessagePreviewControl)
-
-            RowDefinition rowDefinition1 = new RowDefinition();
-            rowDefinition1.Height = GridLength.Auto;
-            ContentPanel.RowDefinitions.Add(rowDefinition1);
-
-            TextBlock vasjaMess = new TextBlock
+            //for each message create textblock (should be custom MessagePreviewControl)         
+            RowDefinition rowDefinition = new RowDefinition();
+            rowDefinition.Height = GridLength.Auto;
+            ContentPanel.RowDefinitions.Add(rowDefinition);
+            /*
+            Image avatar = new Image();
+            Uri uri = new Uri("VKClient/Assets/Photo_Placeholder.png", UriKind.Relative);            
+            StreamResourceInfo resourceInfo = Application.GetResourceStream(uri);            
+            BitmapImage bmp = new BitmapImage();
+            bmp.SetSource(resourceInfo.Stream);
+            avatar.Source = bmp;
+            */
+            MessagePreviewControl messControl = new MessagePreviewControl
             {
-                Text = "Сообщение от Васи",
-                Foreground = new SolidColorBrush(Colors.White),
-                FontSize = 28            
+                //Avatar = avatar,
+                Text = "Привет! Как дела?",
+                FullName = "Петя Петров",
+                Time = "вчера"
             };
-            ContentPanel.Children.Add(vasjaMess);
-            Grid.SetRow(vasjaMess, 0);
+            ContentPanel.Children.Add(messControl);
+            Grid.SetRow(messControl, 0);
 
-
-            RowDefinition rowDefinition2 = new RowDefinition();
-            rowDefinition2.Height = GridLength.Auto;
-            ContentPanel.RowDefinitions.Add(rowDefinition2);
-            TextBlock petjaMess = new TextBlock
-            {
-                Text = "Сообщение от Пети",
-                Foreground = new SolidColorBrush(Colors.White),
-                FontSize = 28,                
-            };
-            ContentPanel.Children.Add(petjaMess);
-            Grid.SetRow(petjaMess, 1);
+            
         }
     }
 }

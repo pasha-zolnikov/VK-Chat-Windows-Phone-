@@ -62,8 +62,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\MessagePreviewControl.xaml.cs">
+      <DependentUpon>MessagePreviewControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ConversationListPage.xaml.cs">
       <DependentUpon>ConversationListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConversationPage.xaml.cs">
+      <DependentUpon>ConversationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PivotPage.xaml.cs">
       <DependentUpon>PivotPage.xaml</DependentUpon>
@@ -81,7 +87,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="controls\MessagePreviewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ConversationListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConversationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -144,6 +158,7 @@
     <Resource Include="Assets\VK_logotype.png" />
     <Resource Include="Assets\VK_logotype_Light.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

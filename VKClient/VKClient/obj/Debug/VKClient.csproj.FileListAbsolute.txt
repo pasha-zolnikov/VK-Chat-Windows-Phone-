@@ -30,3 +30,5 @@ C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\
 C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\Microsoft.Phone.Controls.xml
 C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\PivotPage.g.i.cs
 C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\ConversationListPage.g.i.cs
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\controls\MessagePreviewControl.g.i.cs
+C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\ConversationPage.g.i.cs

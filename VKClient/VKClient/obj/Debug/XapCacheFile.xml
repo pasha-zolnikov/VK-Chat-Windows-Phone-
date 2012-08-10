@@ -1,8 +1,8 @@
-﻿<xapCache source="C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\VKClient.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="08.08.2012 19:23:59">
+﻿<xapCache source="C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\VKClient.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="10.08.2012 21:47:34">
   <file source="C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="07.08.2012 18:39:06" />
   <file source="C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Background.png" archivePath="Background.png" lastWriteTime="07.08.2012 18:24:50" />
   <file source="C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="07.08.2012 18:24:50" />
-  <file source="C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.dll" archivePath="VKClient.dll" lastWriteTime="08.08.2012 19:23:58" />
+  <file source="C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.dll" archivePath="VKClient.dll" lastWriteTime="10.08.2012 21:47:34" />
   <file source="C:\Program Files\Microsoft SDKs\Windows Phone\v7.1\Libraries\Silverlight\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="15.09.2011 15:36:26" />
   <file source="C:\Users\dautov-r\Documents\GitHub\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="08.08.2012 18:24:58" />
 </xapCache>
