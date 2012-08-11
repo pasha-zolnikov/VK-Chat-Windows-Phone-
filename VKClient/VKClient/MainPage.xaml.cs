@@ -24,7 +24,7 @@ namespace VKClient
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             HttpRequestsHandler rh = new HttpRequestsHandler();
-            rh.SignIn("", "");
+            rh.AuthHttp(LoginBox.Text, PasswordBox.Password);
             NavigationService.Navigate(new Uri("/PivotPage.xaml", UriKind.Relative));
         }
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
