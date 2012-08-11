@@ -52,3 +52,5 @@ D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKCl
 D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.dll
 D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.pdb
 D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\XapCacheFile.xml
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\Newtonsoft.Json.pdb
+D:\Новая папка\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\Newtonsoft.Json.xml

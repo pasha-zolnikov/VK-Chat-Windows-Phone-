@@ -10,11 +10,16 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Text;
 using System.IO;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace VKClient
 {
     public class HttpRequestsHandler
     {
+        private String accessToken;
+        private String results;
+        private String[] separator = { ":", ",", "{", "}", "\"" };
         private String CreateAuthString(String username, String password)
         {
             StringBuilder sb = new StringBuilder();
@@ -30,10 +35,15 @@ namespace VKClient
             return sb.ToString();
         }
 
-        public void authHttp()
+        public void SignIn(String username, String password)
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://oauth.vk.com/token?grant_type=password&client_id=3059981&client_secret=YWES9oRC76HvjYLIA62a&username=pasha.zolnikov@gmail.com&password=g47DKFJ7yg56918234&scope=friends");
-            request.BeginGetResponse(new AsyncCallback(ReadWebRequestCallback), request);
+            AuthHttp(username, password);            
+        }
+
+        private void AuthHttp(String username, String password)
+        {
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://oauth.vk.com/token?grant_type=password&client_id=3059981&client_secret=YWES9oRC76HvjYLIA62a&username=pasha.zolnikov@gmail.com&password=g47DKFJ7yg56918234&scope=messages");
+            request.BeginGetResponse(new AsyncCallback(ReadWebRequestCallback), request);       
         }
 
         private void ReadWebRequestCallback(IAsyncResult callbackResult)
@@ -43,11 +53,24 @@ namespace VKClient
 
             using (StreamReader httpwebStreamReader = new StreamReader(myResponse.GetResponseStream()))
             {
-                string results = httpwebStreamReader.ReadToEnd();
+                results = httpwebStreamReader.ReadToEnd();
+                RetreiveAccessToken();
                 //TextBlockResults.Text = results; //-- on another thread!
                 //Dispatcher.BeginInvoke(() => TextBlockResults.Text = results);
             }
             myResponse.Close();
         }
+
+        private void RetreiveAccessToken()
+        {
+            Dictionary<string, string> answer = JsonParser.ParseJson(results);
+            answer.TryGetValue("access_token", out accessToken);
+        }
+
+        public void GetDialogs()
+        {
+            //JsonParser.ParseJson()
+        }
+        
     }
 }
