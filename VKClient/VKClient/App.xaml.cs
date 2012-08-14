@@ -57,6 +57,74 @@ namespace VKClient
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
+            // Create the database if it does not exist.
+            using (VKDataContext db = new VKDataContext(VKDataContext.DBConnectionString))
+            {
+                if (db.DatabaseExists() == false)
+                {
+                    //Create the database
+                    db.CreateDatabase();
+                    createTestData();
+                }
+            }
+
+            
+        }
+
+        private void createTestData()
+        {
+            using (VKDataContext context = new VKDataContext(VKDataContext.DBConnectionString))
+            {
+                //context.DeleteDatabase();
+                //context.CreateDatabase();
+
+                IList<String> firstnames = new List<String>();
+                firstnames.Add("Александр");
+                firstnames.Add("Андрей");
+                firstnames.Add("Bob");
+                firstnames.Add("Willy");
+                firstnames.Add("John");
+                firstnames.Add("Akakij");
+
+                IList<String> lastnames = new List<String>();
+                lastnames.Add("Семирухин");
+                lastnames.Add("White");
+                lastnames.Add("Green");
+                lastnames.Add("Joke");
+                lastnames.Add("Smith");
+                lastnames.Add("Васильев");
+
+                IList<String> messageBodies = new List<String>();
+                messageBodies.Add("Hi! How are you?");
+                messageBodies.Add("Привет! Как дела?");
+                messageBodies.Add("Merhaba! Nasilsin?");
+                messageBodies.Add("What's up?");
+                messageBodies.Add("Йоххо!");
+                messageBodies.Add("London is capital of Great Britain");
+
+                for (int i = 0; i < 6; i++)
+                {
+                    VKUser user = new VKUser();
+                    user.LastName = lastnames[i];
+                    user.FirstName = firstnames[i];
+                    user.Photo = "http://photo.jpg";
+                    user.IsOnline = true;
+                    context.VKUser.InsertOnSubmit(user);
+                    context.SubmitChanges();
+
+                    VKMessage message = new VKMessage();
+                    message.Body = messageBodies[i];
+                    context.VKMessage.InsertOnSubmit(message);
+                    context.SubmitChanges();
+
+                    UserMessage um = new UserMessage();
+                    um.VKMessageID = user.VKUserID;
+                    um.VKUserID = message.VKMessageID;
+                    context.UserMessage.InsertOnSubmit(um);
+                    context.SubmitChanges();
+                }
+            }
+
         }
 
         // Code to execute when the application is launching (eg, from Start)
