@@ -1,9 +1,9 @@
-﻿<xapCache source="D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\VKClient.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="02.06.2012 22:29:12">
-  <file source="D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="10.08.2012 22:26:07" />
-  <file source="D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\Background.png" archivePath="Background.png" lastWriteTime="10.08.2012 22:26:07" />
-  <file source="D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="10.08.2012 22:26:07" />
-  <file source="D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.dll" archivePath="VKClient.dll" lastWriteTime="02.06.2012 22:29:12" />
+﻿<xapCache source="D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\VKClient.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="17.08.2012 21:46:49">
+  <file source="D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="02.06.2012 22:56:12" />
+  <file source="D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\Background.png" archivePath="Background.png" lastWriteTime="02.06.2012 22:56:12" />
+  <file source="D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="02.06.2012 22:56:12" />
+  <file source="D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.dll" archivePath="VKClient.dll" lastWriteTime="17.08.2012 21:46:48" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Libraries\Silverlight\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="29.08.2011 22:49:08" />
-  <file source="D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\Newtonsoft.Json.dll" archivePath="Newtonsoft.Json.dll" lastWriteTime="03.08.2012 19:21:16" />
-  <file source="D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="02.06.2012 22:29:12" />
+  <file source="D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\Newtonsoft.Json.dll" archivePath="Newtonsoft.Json.dll" lastWriteTime="02.06.2012 22:56:12" />
+  <file source="D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="02.06.2012 22:56:25" />
 </xapCache>

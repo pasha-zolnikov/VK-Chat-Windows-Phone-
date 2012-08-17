@@ -75,9 +75,11 @@
     <Compile Include="ConversationPage.xaml.cs">
       <DependentUpon>ConversationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogsList.cs" />
     <Compile Include="HttpRequestHandler.cs" />
     <Compile Include="JsonParser.cs" />
     <Compile Include="LoginInfo.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="PivotPage.xaml.cs">
       <DependentUpon>PivotPage.xaml</DependentUpon>
     </Compile>

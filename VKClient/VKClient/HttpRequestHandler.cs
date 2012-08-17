@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,7 @@ using System.Text;
 using System.IO;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 
 namespace VKClient
@@ -19,49 +21,11 @@ namespace VKClient
     public class HttpRequestsHandler
     {
         public static String accessToken { get; private set; }
-        public static string result;
-        private String CreateAuthString(String username, String password)
+        public static List<Message> messages = new List<Message>();
+
+        private String CreateAuthDataString(String username, String password)
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("?grant_type=password&client_id=");
-            sb.AppendLine(Constants.appID.ToString());
-            sb.AppendLine("&client_secret=");
-            sb.AppendLine(Constants.appSecret);
-            sb.AppendLine("&username=");
-            sb.AppendLine(username);
-            sb.AppendLine("&password=");
-            sb.AppendLine(password);
-
-            return sb.ToString();
-        }
-
-        
-
-        //public void AuthHttp(object info)
-        //{
-        //    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://oauth.vk.com/token?grant_type=password&client_id=3059981&client_secret=YWES9oRC76HvjYLIA62a&username=pasha.zolnikov@gmail.com&password=g47DKFJ7yg56918234&scope=messages");
-        //    request.BeginGetResponse(new AsyncCallback(AuthRequestCallback), request);
-        //}
-
-        //private void AuthRequestCallback(IAsyncResult callbackResult)
-        //{
-        //    HttpWebRequest myRequest = (HttpWebRequest)callbackResult.AsyncState;
-        //    HttpWebResponse myResponse = (HttpWebResponse)myRequest.EndGetResponse(callbackResult);
-
-        //    using (StreamReader httpwebStreamReader = new StreamReader(myResponse.GetResponseStream()))
-        //    {
-        //        string results = httpwebStreamReader.ReadToEnd();
-        //        var answer = JsonConvert.DeserializeObject<AuthAnswer>(results);
-        //        accessToken = answer.accessToken;
-        //        //TextBlockResults.Text = results; //-- on another thread!
-        //    }
-        //    myResponse.Close();
-        //}
-
-        private void RetreiveAccessToken(String results)
-        {
-            var answer = JsonConvert.DeserializeObject<AuthAnswer>(results);
-            accessToken = answer.accessToken;
+            return String.Format("?grant_type=password&client_id={0}&client_secret={1}&username={2}&password={3}&scope=messages", Constants.appID.ToString(), Constants.appSecret, username, password);
         }
 
         public void AuthHttp(Action callback, Action<Exception> error)
@@ -72,6 +36,7 @@ namespace VKClient
                     if (q.Error == null)
                     {
                         accessToken = JsonConvert.DeserializeObject<AuthAnswer>(q.Result).accessToken;
+                        
                         callback();
                     }
                     else
@@ -79,17 +44,8 @@ namespace VKClient
                         error(q.Error);
                     }
                 };
-            client.DownloadStringAsync(new Uri("https://oauth.vk.com/token?grant_type=password&client_id=3059981&client_secret=YWES9oRC76HvjYLIA62a&username=pasha.zolnikov@gmail.com&password=g47DKFJ7yg56918234&scope=messages"));
+            client.DownloadStringAsync(new Uri("https://oauth.vk.com/token" + CreateAuthDataString("pasha.zolnikov@gmail.com", "g47DKFJ7yg56918234")));
         }
-
-        //private void client_DownloadStringSompleted(object sender, DownloadStringCompletedEventArgs ololo)
-        //{
-        //    if (ololo.Error == null)
-        //    {
-        //        PivotPage.result = ololo.Result;
-                
-        //    }
-        //}
 
         public void GetDialogs(Action callback, Action<Exception> error)
         {
@@ -98,8 +54,34 @@ namespace VKClient
             {
                 if (q.Error == null)
                 {
-                    accessToken = JsonConvert.DeserializeObject<AuthAnswer>(q.Result).accessToken;
-                    
+                    //JObject result = JObject.Parse(q.Result);
+                    //JArray dialogs = (JArray)result["response"];
+                    //try
+                    //{
+                    //    var query = from msg in dialogs
+                    //                where !(msg is JValue)
+                    //                select new Message
+                    //                {
+                    //                    mid = (int)msg["mid"],
+                    //                    date = (int)msg["date"],
+                    //                    @out = (short)msg["out"],
+                    //                    uid = (int)msg["uid"],
+                    //                    read_state = (short)msg["read_state"],
+                    //                    title = (string)msg["title"],
+                    //                    body = (string)msg["body"],
+                    //                };
+                    //    foreach (Message msg in query)
+                    //    {
+                    //        messages.Add(msg);
+                    //    }
+
+                    //}
+                    //catch (ArgumentNullException e) { }
+                    var itemList = ((JObject)JsonConvert.DeserializeObject(q.Result))["response"]
+                .Skip(1)
+                .Select(x => JsonConvert.DeserializeObject<Message>(x.ToString()))
+                .ToList();
+
                     callback();
                 }
                 else
@@ -107,6 +89,7 @@ namespace VKClient
                     error(q.Error);
                 }
             };
+            client.DownloadStringAsync(new Uri(String.Format("https://api.vkontakte.ru/method/messages.getDialogs?access_token={0}", accessToken)));
         }
         
     }

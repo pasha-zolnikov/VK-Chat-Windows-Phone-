@@ -17,7 +17,8 @@ namespace VKClient
 
     public partial class PivotPage : PhoneApplicationPage
     {
-        public static String result;
+        public static String accessToken;
+        public static List<Message> dialogs = new List<Message>();
         public PivotPage()
         {
             InitializeComponent();
@@ -27,17 +28,6 @@ namespace VKClient
         {
 
         }
-
-        //public static void LoadDialogs(String login, String password)
-        //{
-        //    LoginInfo info = new LoginInfo(login, password);
-        //    HttpRequestsHandler rh = new HttpRequestsHandler();
-        //    //Thread loginThread = new Thread(rh.AuthHttp);
-        //    //loginThread.Start(info);
-        //    //loginThread.Join();
-        //    //Thread.Sleep(TimeSpan.FromSeconds(1));
-        //    //String ololo = HttpRequestsHandler.accessToken;
-        //}
 
         private static void BeginAuth()
         {
@@ -50,7 +40,10 @@ namespace VKClient
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            
+            accessToken = HttpRequestsHandler.accessToken;
+            dialogs = HttpRequestsHandler.messages;
+
         }
+
     }
 }
