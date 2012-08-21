@@ -13,7 +13,7 @@ using Microsoft.Phone.Controls;
 using VKClient.controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Resources;
-
+using VKClient.dao;
 namespace VKClient
 {
     public partial class ConversationListPage : PhoneApplicationPage
@@ -21,31 +21,12 @@ namespace VKClient
         public ConversationListPage()
         {            
             InitializeComponent();
+            int index = 0;
             //load messages
-
-
-            //move this code into DAOUser
-            IList<VKMessage> messageList = null;
-            using (VKDataContext context = new VKDataContext(VKDataContext.DBConnectionString))
+            IList<VKMessage> messageList = MessageDAO.getLastMessages();
+            foreach (VKMessage message in messageList)
             {
-                IList<UserMessage> usermessageList = null;
-                IQueryable<UserMessage> usermessagequery = from c in context.UserMessage select c;
-                usermessageList = usermessagequery.ToList();
-
-                IQueryable<VKMessage> query = from c in context.VKMessage select c;
-                messageList = query.ToList();
-
-
-                UserMessage um = messageList[0].UserMessages[0];
-
-                IList<VKUser> userList = null;
-
-
-                IQueryable<VKUser> userquery = from c in context.VKUser where c.VKUserID == um.VKUserID select c;
-                userList = userquery.ToList();
-
-
-                //for each message create textblock (should be custom MessagePreviewControl)         
+                IList<VKUser> userList = UserDAO.getUsersByMessage(message);                               
                 RowDefinition rowDefinition = new RowDefinition();
                 rowDefinition.Height = GridLength.Auto;
                 ContentPanel.RowDefinitions.Add(rowDefinition);
@@ -60,13 +41,14 @@ namespace VKClient
                 MessagePreviewControl messControl = new MessagePreviewControl
                 {
                     //Avatar = avatar,
-                    Text = messageList[0].Body,
+                    Text = message.Body,
+                    // TODO: implement showing of multiple users (беседа)
                     FullName = userList[0].LastName,
-                    Time = messageList[0].Date.ToString()
+                    Time = message.Date.ToString()
                 };
                 ContentPanel.Children.Add(messControl);
-                Grid.SetRow(messControl, 0);
-
+                Grid.SetRow(messControl, index);
+                index++;
             }
         }
     }

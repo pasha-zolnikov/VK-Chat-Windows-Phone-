@@ -75,6 +75,8 @@
     <Compile Include="ConversationPage.xaml.cs">
       <DependentUpon>ConversationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="dao\MessageDAO.cs" />
+    <Compile Include="dao\UserDAO.cs" />
     <Compile Include="DataController.cs" />
     <Compile Include="DialogsList.cs" />
     <Compile Include="HttpRequestHandler.cs" />
@@ -138,6 +140,9 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Json.net\Newtonsoft.Json.dll" />
+    <Content Include="Json.net\Newtonsoft.Json.pdb" />
+    <Content Include="Json.net\Newtonsoft.Json.xml" />
     <Resource Include="Assets\Appbar_Icons\appbar.add.rest.png" />
     <Resource Include="Assets\Appbar_Icons\appbar.attachments-1.rest.png" />
     <Resource Include="Assets\Appbar_Icons\appbar.attachments-10.rest.png" />
