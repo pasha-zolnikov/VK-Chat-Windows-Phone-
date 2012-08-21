@@ -64,7 +64,7 @@ namespace VKClient
                 {
                     //Create the database
                     db.CreateDatabase();
-                    createTestData();
+                    //createTestData();
                 }
             }
 

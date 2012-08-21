@@ -16,12 +16,13 @@ namespace VKClient
     {
         public static void AddDialogsToDB(List<Message> dialogs)
         {
-            using(VKDataContext context = new VKDataContext(VKDataContext.DBConnectionString))
+
+            foreach (Message msg in dialogs)
             {
-                foreach (Message msg in dialogs)
+
+                HttpRequestsHandler.GetUserByID(msg.uid, (x) =>
                 {
-                    
-                    HttpRequestsHandler.GetUserByID(msg.uid, (x) =>
+                    using (VKDataContext context = new VKDataContext(VKDataContext.DBConnectionString))
                     {
                         VKMessage vm = new VKMessage();
                         vm.Body = msg.body;
@@ -46,12 +47,12 @@ namespace VKClient
 
                         context.UserMessage.InsertOnSubmit(um);
                         context.SubmitChanges();
-                    }, (error) =>
-                    {
-                    });
+                    }
+                }, (error) =>
+                {
+                });
 
-                   
-                }
+
             }
         }
     }
