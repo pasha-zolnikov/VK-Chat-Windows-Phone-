@@ -21,14 +21,13 @@ namespace VKClient
     public class HttpRequestsHandler
     {
         public static String accessToken { get; private set; }
-        public static List<Message> messages = new List<Message>();
 
-        private String CreateAuthDataString(String username, String password)
+        private static String CreateAuthDataString(String username, String password)
         {
             return String.Format("?grant_type=password&client_id={0}&client_secret={1}&username={2}&password={3}&scope=messages", Constants.appID.ToString(), Constants.appSecret, username, password);
         }
 
-        public void AuthHttp(Action callback, Action<Exception> error)
+        public static void AuthHttp(Action callback, Action<Exception> error)
         {
             WebClient client = new WebClient();
             client.DownloadStringCompleted += (p, q) =>
@@ -47,36 +46,35 @@ namespace VKClient
             client.DownloadStringAsync(new Uri("https://oauth.vk.com/token" + CreateAuthDataString("pasha.zolnikov@gmail.com", "g47DKFJ7yg56918234")));
         }
 
-        public void GetDialogs(Action callback, Action<Exception> error)
+        public static void GetDialogs(Action<List<Message>> callback, Action<Exception> error)
         {
             WebClient client = new WebClient();
             client.DownloadStringCompleted += (p, q) =>
             {
                 if (q.Error == null)
                 {
-                    //JObject result = JObject.Parse(q.Result);
-                    //JArray dialogs = (JArray)result["response"];
-                    //try
-                    //{
-                    //    var query = from msg in dialogs
-                    //                where !(msg is JValue)
-                    //                select new Message
-                    //                {
-                    //                    mid = (int)msg["mid"],
-                    //                    date = (int)msg["date"],
-                    //                    @out = (short)msg["out"],
-                    //                    uid = (int)msg["uid"],
-                    //                    read_state = (short)msg["read_state"],
-                    //                    title = (string)msg["title"],
-                    //                    body = (string)msg["body"],
-                    //                };
-                    //    foreach (Message msg in query)
-                    //    {
-                    //        messages.Add(msg);
-                    //    }
+                    var itemList = ((JObject)JsonConvert.DeserializeObject(q.Result))["response"]
+                .Skip(1)
+                .Select(x => JsonConvert.DeserializeObject<Message>(x.ToString()))
+                .ToList();
+                    //messages = itemList;
+                    callback(itemList);
+                }
+                else
+                {
+                    error(q.Error);
+                }
+            };
+            client.DownloadStringAsync(new Uri(String.Format("https://api.vkontakte.ru/method/messages.getDialogs?access_token={0}", accessToken)));
+        }
 
-                    //}
-                    //catch (ArgumentNullException e) { }
+        public static void getMessages(int userID, Action callback, Action<Exception> error)
+        {
+            WebClient client = new WebClient();
+            client.DownloadStringCompleted += (p, q) =>
+            {
+                if (q.Error == null)
+                {
                     var itemList = ((JObject)JsonConvert.DeserializeObject(q.Result))["response"]
                 .Skip(1)
                 .Select(x => JsonConvert.DeserializeObject<Message>(x.ToString()))
@@ -91,6 +89,25 @@ namespace VKClient
             };
             client.DownloadStringAsync(new Uri(String.Format("https://api.vkontakte.ru/method/messages.getDialogs?access_token={0}", accessToken)));
         }
-        
+
+
+        public static void GetUserByID(int userID, Action<User> callback, Action<Exception> error)
+        {
+            WebClient client = new WebClient();
+            client.DownloadStringCompleted += (p, q) =>
+            {
+                if (q.Error == null)
+                {
+                    var user = JsonConvert.DeserializeObject<User>(((JObject)JsonConvert.DeserializeObject(q.Result))["response"].ToArray()[0].ToString());
+                    //var user = JOject
+                    callback(user);
+                }
+                else
+                {
+                    error(q.Error);
+                }
+            };
+            client.DownloadStringAsync(new Uri(String.Format("https://api.vkontakte.ru/method/users.get?uid={0}&fields=online&access_token={1}", userID.ToString(), accessToken)));
+        }
     }
 }

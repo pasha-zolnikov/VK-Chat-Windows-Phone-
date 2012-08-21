@@ -22,16 +22,16 @@ namespace VKClient
         {
             InitializeComponent();
         }
-        public static HttpRequestsHandler rh = new HttpRequestsHandler();
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             
             
-            rh.AuthHttp(() =>
+            HttpRequestsHandler.AuthHttp(() =>
             {
-                rh.GetDialogs(() =>
+                HttpRequestsHandler.GetDialogs((x) =>
                 {
+                    DataController.AddDialogsToDB(x);
                     NavigationService.Navigate(new Uri("/PivotPage.xaml", UriKind.Relative));
                 }, (error) =>
                 {
