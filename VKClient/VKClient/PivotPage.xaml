@@ -18,7 +18,7 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <!--Pivot Control-->
-        <controls:Pivot Title="">                                    
+        <controls:Pivot Title="" SelectionChanged="onSelectionChanged">                                    
             <controls:PivotItem Header="Сообщения">
                 <Grid>
                     <vk:ConversationListPage/>

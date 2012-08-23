@@ -9,17 +9,22 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Collections.Generic;
-
+using VKClient.dao;
 namespace VKClient
 {
     public class DataController
     {
-        public static void AddDialogsToDB(List<Message> dialogs)
+        private static ConversationListPage ConversationListPage;
+        public static IList<VKMessage> getLastMessages()
         {
+            return MessageDAO.getLastMessages();
+        }
 
-            foreach (Message msg in dialogs)
+        public static void LoadMessages(List<Message> dialogs)
+        {            
+            for(int i=0;i<dialogs.Count;i++)
             {
-
+                Message msg = dialogs[i];
                 HttpRequestsHandler.GetUserByID(msg.uid, (x) =>
                 {
                     using (VKDataContext context = new VKDataContext(VKDataContext.DBConnectionString))
@@ -51,9 +56,12 @@ namespace VKClient
                 }, (error) =>
                 {
                 });
-
-
             }
+        }
+
+        public static void setConversationListPage(ConversationListPage Page)
+        {
+            ConversationListPage = Page;
         }
     }
 }

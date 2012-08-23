@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using System.Threading;
-
+using Microsoft.Phone.Shell;
 namespace VKClient
 {
 
@@ -22,9 +22,19 @@ namespace VKClient
             InitializeComponent();
         }
 
-        private void ConversationListControl_Loaded(object sender, RoutedEventArgs e)
+        private void onSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
+            switch (((Pivot)sender).SelectedIndex)
+            {
+                case 0:
+                    ApplicationBar = ((ApplicationBar)Application.Current.Resources["AppBarConversationList"]);
+                    break;
 
+                case 1:
+                    ApplicationBar = ((ApplicationBar)Application.Current.Resources["AppBarFriendList"]);
+                    break;
+            }
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)

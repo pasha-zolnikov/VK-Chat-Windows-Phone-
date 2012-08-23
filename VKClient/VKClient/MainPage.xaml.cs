@@ -31,7 +31,7 @@ namespace VKClient
             {
                 HttpRequestsHandler.GetDialogs((x) =>
                 {
-                    DataController.AddDialogsToDB(x);
+                    DataController.LoadMessages(x);
                     NavigationService.Navigate(new Uri("/PivotPage.xaml", UriKind.Relative));
                 }, (error) =>
                 {

@@ -7,6 +7,18 @@
 
     <!--Application Resources-->
     <Application.Resources>
+
+        <shell:ApplicationBar x:Key="AppBarConversationList" IsVisible="True">
+            <shell:ApplicationBarIconButton Click="AddButton_Click"  IconUri="Assets/Appbar_Icons/appbar.add.rest.png" Text="asd "/>
+            <shell:ApplicationBarIconButton IconUri="Assets/Appbar_Icons/appbar.refresh.rest.png" Text="text"/>
+            <shell:ApplicationBarIconButton IconUri="Assets/Appbar_Icons/appbar.feature.search.rest.png" Text="text"/>                        
+        </shell:ApplicationBar>
+
+        <shell:ApplicationBar x:Key="AppBarFriendList" IsVisible="True">
+            <shell:ApplicationBarIconButton Click="AddButton_Click"  IconUri="Assets/Appbar_Icons/appbar.add.rest.png" Text="asd "/>
+            <shell:ApplicationBarIconButton IconUri="Assets/Appbar_Icons/appbar.refresh.rest.png" Text=" asdf"/>            
+        </shell:ApplicationBar>
+
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>
@@ -15,5 +27,6 @@
             Launching="Application_Launching" Closing="Application_Closing" 
             Activated="Application_Activated" Deactivated="Application_Deactivated"/>
     </Application.ApplicationLifetimeObjects>
+
 
 </Application>

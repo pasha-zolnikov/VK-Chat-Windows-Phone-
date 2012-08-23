@@ -18,18 +18,29 @@ namespace VKClient
 {
     public partial class ConversationListPage : PhoneApplicationPage
     {
+        IList<VKMessage> messageList = new List<VKMessage>();
         public ConversationListPage()
-        {            
+        {
             InitializeComponent();
-            int index = 0;
-            //load messages
-            IList<VKMessage> messageList = MessageDAO.getLastMessages();
+            update();
+            DataController.setConversationListPage(this);
+        }
+
+        public void update()
+        {
+            messageList = DataController.getLastMessages();
+            createControls();
+        }
+
+        private void createControls()
+        {
             foreach (VKMessage message in messageList)
             {
-                IList<VKUser> userList = UserDAO.getUsersByMessage(message);                               
+                IList<VKUser> userList = UserDAO.getUsersByMessage(message);
                 RowDefinition rowDefinition = new RowDefinition();
                 rowDefinition.Height = GridLength.Auto;
                 ContentPanel.RowDefinitions.Add(rowDefinition);
+                int index = 0;
                 /*
                 Image avatar = new Image();
                 Uri uri = new Uri("VKClient/Assets/Photo_Placeholder.png", UriKind.Relative);            
@@ -51,5 +62,8 @@ namespace VKClient
                 index++;
             }
         }
+
+
+        
     }
 }

@@ -15,6 +15,7 @@ using Microsoft.Phone.Shell;
 
 namespace VKClient
 {
+
     public partial class App : Application
     {
         /// <summary>
@@ -22,6 +23,11 @@ namespace VKClient
         /// </summary>
         /// <returns>The root frame of the Phone Application.</returns>
         public PhoneApplicationFrame RootFrame { get; private set; }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Add button works!");
+        }
 
         /// <summary>
         /// Constructor for the Application object.
