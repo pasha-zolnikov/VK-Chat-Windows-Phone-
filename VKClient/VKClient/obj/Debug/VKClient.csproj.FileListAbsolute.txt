@@ -74,3 +74,6 @@ D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.g.resour
 D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.dll
 D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\VKClient.pdb
 D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\obj\Debug\XapCacheFile.xml
+D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\Newtonsoft.Json.dll
+D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\Newtonsoft.Json.pdb
+D:\Projects\VK-Chat-Windows-Phone-\VKClient\VKClient\Bin\Debug\Newtonsoft.Json.xml

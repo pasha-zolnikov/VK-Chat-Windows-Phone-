@@ -16,7 +16,7 @@ namespace VKClient
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        
+
         // Constructor
         public MainPage()
         {
@@ -25,23 +25,21 @@ namespace VKClient
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            
-            HttpRequestsHandler.AuthHttp(() =>
+
+            if (HttpRequestsHandler.accessToken == null)
             {
-                HttpRequestsHandler.GetDialogs((x) =>
+                HttpRequestsHandler.AuthHttp(() =>
                 {
-                    DataController.LoadMessages(x);
                     NavigationService.Navigate(new Uri("/PivotPage.xaml", UriKind.Relative));
                 }, (error) =>
                 {
-                }
-);
-            }, (error) =>
-            {
+                });
             }
-                );
-            
+            else
+            {
+                NavigationService.Navigate(new Uri("/PivotPage.xaml", UriKind.Relative));
+            }
+
         }
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {

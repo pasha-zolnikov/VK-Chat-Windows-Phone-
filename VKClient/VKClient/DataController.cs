@@ -15,14 +15,25 @@ namespace VKClient
     public class DataController
     {
         private static ConversationListPage ConversationListPage;
-        public static IList<VKMessage> getLastMessages()
+
+        public static void getLastMessages()
         {
-            return MessageDAO.getLastMessages();
+            IList<VKMessage> list = MessageDAO.getLastMessages();
+            if (list == null)
+            {
+                HttpRequestsHandler.GetDialogs((x) =>
+                    {
+                        LoadMessages(x);
+                    }, (error) => { }
+                    );
+                list = MessageDAO.getLastMessages();
+            }
+            ConversationListPage.update(list);
         }
 
         public static void LoadMessages(List<Message> dialogs)
-        {            
-            for(int i=0;i<dialogs.Count;i++)
+        {
+            for (int i = 0; i < dialogs.Count; i++)
             {
                 Message msg = dialogs[i];
                 HttpRequestsHandler.GetUserByID(msg.uid, (x) =>
