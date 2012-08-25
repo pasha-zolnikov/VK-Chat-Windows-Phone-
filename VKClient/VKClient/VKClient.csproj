@@ -78,6 +78,7 @@
     <Compile Include="dao\MessageDAO.cs" />
     <Compile Include="dao\UserDAO.cs" />
     <Compile Include="DataController.cs" />
+    <Compile Include="DateConverter.cs" />
     <Compile Include="DialogsList.cs" />
     <Compile Include="HttpRequestHandler.cs" />
     <Compile Include="JsonParser.cs" />

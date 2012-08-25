@@ -87,10 +87,10 @@ namespace VKClient
 
 
         // Date the message was sent
-        private long _date;
+        private DateTime _date;
 
         [Column]
-        public long Date
+        public DateTime Date
         {
             get
             {

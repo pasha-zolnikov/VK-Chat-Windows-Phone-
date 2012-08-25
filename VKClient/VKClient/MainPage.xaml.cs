@@ -30,7 +30,7 @@ namespace VKClient
             {
                 HttpRequestsHandler.AuthHttp(() =>
                 {
-                    NavigationService.Navigate(new Uri("/PivotPage.xaml", UriKind.Relative));
+                    NavigationService.Navigate(new Uri("/PivotPage.xaml" +  "?Refresh=true", UriKind.Relative));
                 }, (error) =>
                 {
                 });

@@ -17,6 +17,7 @@ namespace VKClient
 
     public partial class PivotPage : PhoneApplicationPage
     {
+        private static int navNumber = 0;
         public PivotPage()
         {
             InitializeComponent();
@@ -39,8 +40,13 @@ namespace VKClient
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
+            navNumber++;
             DataController.getLastMessages();
+            base.OnNavigatedTo(e);
+            if (navNumber % 2 != 0)
+            {
+                NavigationService.Navigate(new Uri("/PivotPage.xaml", UriKind.Relative));
+            }
         }
 
     }

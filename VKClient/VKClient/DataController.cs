@@ -19,7 +19,7 @@ namespace VKClient
         public static void getLastMessages()
         {
             IList<VKMessage> list = MessageDAO.getLastMessages();
-            if (list == null)
+            if (list.Count == 0)
             {
                 HttpRequestsHandler.GetDialogs((x) =>
                     {
@@ -42,7 +42,7 @@ namespace VKClient
                     {
                         VKMessage vm = new VKMessage();
                         vm.Body = msg.body;
-                        vm.Date = msg.date;
+                        vm.Date = DateConverter.DateTimeFromUnixTimestampSeconds(msg.date);
                         vm.VKMessageID = msg.mid;
                         VKUser user = new VKUser();
 

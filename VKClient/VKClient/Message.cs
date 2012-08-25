@@ -15,7 +15,7 @@ namespace VKClient
     public class Message
     {
         public int mid { get; set; }
-        public int date { get; set; }
+        public long date { get; set; }
         public int @out { get; set; }
         public int uid { get; set; }
         public int read_state { get; set; }
